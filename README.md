@@ -1,1 +1,4 @@
-# AtividadeContinuadaPOO
+# ALUNOS
+
+- Gabriel França
+- Pedro Ferraz
