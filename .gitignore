@@ -1,7 +1,11 @@
-# Compiled class file
+# ========================
+# Java e Eclipse Gitignore
+# ========================
+
+# Compiled class files
 *.class
 
-# Log file
+# Log files
 *.log
 
 # BlueJ files
@@ -19,6 +23,25 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# Virtual machine crash logs
 hs_err_pid*
 replay_pid*
+
+# ========================
+# Eclipse Specific
+# ========================
+
+# Pastas de configuração do Eclipse
+.settings/
+.classpath
+.project
+
+# Diretório de compilação do Eclipse
+/bin/
+
+# ========================
+# Outras IDEs (caso use no futuro)
+# ========================
+.idea/
+*.iml
+.vscode/
