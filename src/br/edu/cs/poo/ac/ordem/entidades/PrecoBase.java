@@ -1,6 +1,9 @@
 package br.edu.cs.poo.ac.ordem.entidades;
 
-public enum PrecoBase {
+import java.io.Serializable;
+
+public enum PrecoBase implements Serializable {
+
     MANUTENCAO_NORMAL(TipoOrdem.MANUTENCAO, Dificuldade.NORMAL, 50.00),
     MANUTENCAO_DIFICIL(TipoOrdem.MANUTENCAO, Dificuldade.DIFICIL, 70.00),
     CONFIGURACAO_NORMAL(TipoOrdem.CONFIGURACAO, Dificuldade.NORMAL, 30.00),
@@ -12,7 +15,7 @@ public enum PrecoBase {
     private final Dificuldade dificuldade;
     private final double preco;
 
-    private PrecoBase(TipoOrdem tipoOrdem, Dificuldade dificuldade, double preco) {
+    PrecoBase(final TipoOrdem tipoOrdem, final Dificuldade dificuldade, final double preco) {
         this.tipoOrdem = tipoOrdem;
         this.dificuldade = dificuldade;
         this.preco = preco;
