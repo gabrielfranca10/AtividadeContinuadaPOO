@@ -1,6 +1,8 @@
 package br.edu.cs.poo.ac.ordem.entidades;
 
-public enum Dificuldade {
+import java.io.Serializable;
+
+public enum Dificuldade implements Serializable {
     NORMAL(1, "Normal"),
     DIFICIL(2, "Difícil");
 
@@ -22,7 +24,9 @@ public enum Dificuldade {
 
     public static Dificuldade getDificuldade(int codigo) {
         for (Dificuldade d : values()) {
-            if (d.getCodigo() == codigo) return d;
+            if (d.getCodigo() == codigo) {
+                return d;
+            }
         }
         return null;
     }
