@@ -46,4 +46,15 @@ public class ListaString {
         }
         return resultado;
     }
+    
+    public String toString() {
+    	StringBuffer sb = new StringBuffer();
+    	ElementoListaString cur = primeiro;
+    	while(cur != null) {
+    		sb.append(cur.getConteudo());
+    		sb.append('\n');
+    		cur = cur.getProximo();
+    	}
+    	return sb.toString();
+    }
 }

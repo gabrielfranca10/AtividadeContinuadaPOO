@@ -6,43 +6,44 @@ import java.time.Period;
 
 public class Cliente implements Serializable {
 
-    private final String cpfCnpj;
-    private String nome;
-    private Contato contato;
-    private final LocalDate dataCadastro;
+	private String cpfCnpj;
+	private String nome;
+	private Contato contato;
+	private LocalDate dataCadastro;
 
-    public Cliente(String cpfCnpj, String nome, Contato contato, LocalDate dataCadastro) {
-        this.cpfCnpj = cpfCnpj;
-        this.nome = nome;
-        this.contato = contato;
-        this.dataCadastro = dataCadastro;
-    }
+	public Cliente(String cpfCnpj,String nome, Contato contato,LocalDate dataCadastro) {
+		this.cpfCnpj=cpfCnpj;
+		this.nome=nome;
+		this.contato=contato;
+		this.dataCadastro=dataCadastro;
+	}
 
-    public String getCpfCnpj() {
-        return cpfCnpj;
-    }
+	public void setNome(String nome) {
+		this.nome=nome;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setContato(Contato contato) {
+		this.contato=contato;
+	}
 
-    public Contato getContato() {
-        return contato;
-    }
+	public Contato getContato() {
+		return contato;
+	}
 
-    public void setContato(Contato contato) {
-        this.contato = contato;
-    }
+	public String getCpfCnpj() {
+		return cpfCnpj;
+	}
 
-    public LocalDate getDataCadastro() {
-        return dataCadastro;
-    }
+	public LocalDate getDataCadastro() {
+		return dataCadastro;
+	}
 
-    public int getIdadeCadastro() {
-        return Period.between(dataCadastro, LocalDate.now()).getYears();
-    }
+	public int getIdadeCadastro() {
+		return Period.between(dataCadastro, LocalDate.now()).getYears();
+	}
+
 }

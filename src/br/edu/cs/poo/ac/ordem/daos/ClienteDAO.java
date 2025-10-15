@@ -1,8 +1,10 @@
 package br.edu.cs.poo.ac.ordem.daos;
 
-import br.edu.cs.poo.ac.ordem.entidades.Cliente;
 import java.io.Serializable;
 
+import br.edu.cs.poo.ac.ordem.entidades.Cliente;
+
+//O identificador único, por objeto, de Cliente é o cpfCnpj.
 public class ClienteDAO extends DAOGenerico{
 
 	public ClienteDAO() {

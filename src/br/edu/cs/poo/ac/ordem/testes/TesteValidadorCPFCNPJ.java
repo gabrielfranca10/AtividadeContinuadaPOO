@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TesteValidadorCPFCNPJ {
 
+    // CPF válido: 52998224725
     @Test
     public void testeCPFValido() {
         ResultadoValidacaoCPFCNPJ resultado = ValidadorCPFCNPJ.validarCPFCNPJ("52998224725");

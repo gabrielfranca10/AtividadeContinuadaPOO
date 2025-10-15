@@ -1,12 +1,11 @@
 package br.edu.cs.poo.ac.ordem.entidades;
 
-import lombok.Data;
-import lombok.AllArgsConstructor;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,31 +15,40 @@ import lombok.Setter;
 
 public class OrdemServico implements Serializable {
 
+	private Cliente cliente;
+	private PrecoBase precoBase;
+	private Notebook notebook;
+	private Desktop desktop;
+	private LocalDateTime dataHoraAbertura;
+	private int prazoEmDias;
+	private double valor;
 
-    private Cliente cliente;
-    private PrecoBase precoBase;
-    private Notebook notebook;
-    private Desktop desktop;
-    private LocalDateTime dataHoraAbertura;
-    private int prazoEmDias;
-    private double valor;
+	public LocalDate getDataEstimadaEntrega() {
 
-    public LocalDate getDataEstimadaEntrega() {
-        if (dataHoraAbertura == null) return null;
-        return dataHoraAbertura.toLocalDate().plusDays(prazoEmDias);
-    }
+		LocalDate dataAbertura = dataHoraAbertura.toLocalDate();
 
-    public String getNumero() {
-        if (dataHoraAbertura == null || cliente == null || cliente.getCpfCnpj() == null) return null;
+		return dataAbertura.plusDays(prazoEmDias);
+	}
 
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("MMyyyyddHHmm");
-        String dt = dataHoraAbertura.format(fmt);
-        String cpfCnpj = cliente.getCpfCnpj().replaceAll("\\D", "");
+	public String getNumero() {
 
-        if (cpfCnpj.length() > 11) {
-            return dt + cpfCnpj;
-        } else {
-            return dt + "000" + cpfCnpj;
-        }
-    }
+		String concatenacao = "";
+		if (notebook != null) {
+			concatenacao += notebook.getIdTipo();
+		} else{
+			concatenacao += desktop.getIdTipo();
+		}
+
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+	    concatenacao += dataHoraAbertura.format(formatter);
+
+		if (cliente.getCpfCnpj().length() > 11) {
+			concatenacao += cliente.getCpfCnpj();
+		} else {
+			concatenacao += "000" + cliente.getCpfCnpj();
+		}
+
+		return concatenacao;
+	}
+
 }

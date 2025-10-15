@@ -3,31 +3,35 @@ package br.edu.cs.poo.ac.ordem.entidades;
 import java.io.Serializable;
 
 public enum Dificuldade implements Serializable {
-    NORMAL(1, "Normal"),
-    DIFICIL(2, "Difícil");
 
-    private final int codigo;
-    private final String nome;
+	NORMAL(1,"Normal"),
+	DIFICIL(2,"Difícil");
 
-    private Dificuldade(int codigo, String nome) {
-        this.codigo = codigo;
-        this.nome = nome;
-    }
+	private int codigo;
+	private String nome;
 
-    public int getCodigo() {
-        return codigo;
-    }
+	private Dificuldade(int codigo,String nome) {
+		this.codigo=codigo;
+		this.nome=nome;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public int getCodigo(){
+		return codigo;
+	}
 
-    public static Dificuldade getDificuldade(int codigo) {
-        for (Dificuldade d : values()) {
-            if (d.getCodigo() == codigo) {
-                return d;
-            }
-        }
-        return null;
-    }
+	public String getNome() {
+		return nome;
+	}
+
+	public static Dificuldade getDificuldade(int codigo) {
+
+		for(Dificuldade d : Dificuldade.values()){
+			if( d.getCodigo() == codigo) {
+				return d;
+			}
+		}
+
+		return null;
+	}
+
 }

@@ -59,8 +59,11 @@ public class ValidadorCPFCNPJ {
 	
 	public static ErroValidacaoCPFCNPJ validarCNPJ(String cnpj) {
 		
+		//if(cnpj==null) return ErroValidacaoCPFCNPJ.CPF_CNPJ_NULO_OU_BRANCO;
 		
 		if (StringUtils.estaVazia(cnpj))return ErroValidacaoCPFCNPJ.CPF_CNPJ_NULO_OU_BRANCO;
+		
+		//if(cnpj==null || cnpj.isBlank() || cnpj.isEmpty()) return ErroValidacaoCPFCNPJ.CPF_CNPJ_NULO_OU_BRANCO;
 		
 		if(!isDigitoVerificadorValidoCNPJ(cnpj)) return ErroValidacaoCPFCNPJ.CPF_CNPJ_COM_DV_INVALIDO;
 		
@@ -106,7 +109,7 @@ public class ValidadorCPFCNPJ {
 		for (int i = 0; i < 12; i++) {
 			soma += (numeros.charAt(i) - '0') * w2[i];
 		}
-		soma += d1 * w2[12];
+		soma += d1 * w2[12]; // peso 2
 		r = soma % 11;
 		int d2 = (r < 2) ? 0 : 11 - r;
 
